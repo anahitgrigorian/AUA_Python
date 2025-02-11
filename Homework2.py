@@ -113,6 +113,7 @@ game.add_piece(Queen, "d1", "black")
 game.add_piece(Knight, "e4", "white")
 
 game.display_board()
-print(game.board[0][4].get_moves(game.board))
-print(game.board[7][3].get_moves(game.board))
-print(game.board[4][4].get_moves(game.board))
+print("possible moves for the King ♔ are:", game.board[0][4].get_moves(game.board))
+print("possible moves for the Queen ♛ are:", game.board[7][3].get_moves(game.board))
+print("possible moves for the Knight ♘ are:", game.board[4][4].get_moves(game.board))
+ 
