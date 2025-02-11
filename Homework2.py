@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 
 class Piece(ABC):
     def __init__(self, color, position):
-        self._color = color  # Encapsulated color attribute
-        self._position = self._convert_to_indices(position)  # Convert from chess notation
+        self._color = color   
+        self._position = self._convert_to_indices(position)   
     
     def get_position(self):
         return self._convert_to_chess_notation(self._position)
@@ -105,7 +105,8 @@ class ChessSimple:
         column, row = chess_notation[0], chess_notation[1]
         return 8 - int(row), ord(column.lower()) - ord('a')
 
-# Example usage
+
+#usage
 game = ChessSimple()
 game.add_piece(King, "e8", "white")
 game.add_piece(Queen, "d1", "black")
