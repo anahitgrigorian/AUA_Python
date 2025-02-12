@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 class Piece(ABC):
     def __init__(self, color, position):
-        self._color = color   
+        self._color = color    #it can be either white or black
         self._position = self._convert_to_indices(position)   
     
     def get_position(self):
@@ -45,18 +45,18 @@ class Queen(Piece):
         moves = []
         for i in range(8):
             if i != row:
-                moves.append((i, col))
+                moves.append((i, col))  #this is for vertical moves
             if i != col:
-                moves.append((row, i))
+                moves.append((row, i))  #this is for horizontal moves
             if i != 0:
                 if 0 <= row + i < 8 and 0 <= col + i < 8:
-                    moves.append((row + i, col + i))
+                    moves.append((row + i, col + i))  #diagonal down/right
                 if 0 <= row - i < 8 and 0 <= col - i < 8:
-                    moves.append((row - i, col - i))
+                    moves.append((row - i, col - i))  #diagonal up/left
                 if 0 <= row + i < 8 and 0 <= col - i < 8:
-                    moves.append((row + i, col - i))
+                    moves.append((row + i, col - i))  #diagonal down/left
                 if 0 <= row - i < 8 and 0 <= col + i < 8:
-                    moves.append((row - i, col + i))
+                    moves.append((row - i, col + i))  #diagonal up/right
         return [self._convert_to_chess_notation(move) for move in moves]
 
 class Knight(Piece):
